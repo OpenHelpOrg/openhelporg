@@ -8,33 +8,43 @@
 
 <nav th:fragment="navbar" class="navbar navbar-inverse navbar-fixed-top  mt-auto">
     <div class="navbar-header">
-        <a class="navbar-brand align-items-center" href="/">home</a>
-        <a th:href="@{/about}">
-            <button style="border:none !important" class="btn-link btn p-0">About</button>
+        <a class="navbar-brand align-items-center" href="/">About?</a>
+        <a th:href="@{/home}">
+            <button style="border:none !important" class="btn-link btn p-0">Home</button>
         </a>
     </div>
     <div class="collapse navbar-collapse">
         <ul class="nav navbar-nav pull-right">
+<!--            <li class="d-flex align-items-center mx-2">-->
+<!--                <a th:href="@{/usersall}">-->
+<!--                    <button style="border:none !important" class="btn-link btn p-0">Users</button>-->
+<!--                </a>-->
+<!--            </li>-->
             <li class="d-flex align-items-center mx-2">
-                <a th:href="@{/users}">
-                    <button style="border:none !important" class="btn-link btn p-0">Users</button>
-                </a>
-            </li>
-            <li class="d-flex align-items-center mx-2">
-                <a th:href="@{'/create-user'}">
+                <a th:href="@{/createuser}">
                     <button style="border:none !important" class="btn-link btn p-0">Sign Up</button>
                 </a>
             </li>
             <li class="d-flex align-items-center mx-2">
-                <a th:href="@{/posts}">
-                    <button style="border:none !important" class="btn-link btn p-0">Index</button>
+                <a th:href="@{/profile}">
+                    <button style="border:none !important" class="btn-link btn p-0">Profile</button>
                 </a>
             </li>
             <li class="d-flex align-items-center mx-2">
-                <a th:href="@{/posts/create}">
-                    <button style="border:none !important" class="btn-link btn p-0">Create</button>
+                <a th:href="@{/eventsindex}">
+                    <button style="border:none !important" class="btn-link btn p-0">Events</button>
                 </a>
             </li>
+            <li class="d-flex align-items-center mx-2">
+                <a th:href="@{/singleevent}">
+                    <button style="border:none !important" class="btn-link btn p-0">Single Event</button>
+                </a>
+            </li>
+<!--            <li class="d-flex align-items-center mx-2">-->
+<!--                <a th:href="@{/events/create}">-->
+<!--                    <button style="border:none !important" class="btn-link btn p-0">Create</button>-->
+<!--                </a>-->
+<!--            </li>-->
 
             <li class="d-flex align-items-center mx-2">
                 <a th:href="@{'/login?logout'}">
@@ -46,7 +56,9 @@
 
 </nav>
 <div class="mt-auto" th:fragment="footer">
-    Footer
+    <a th:href="@{/about}">
+        <button style="border:none !important" class="btn-link btn p-0">About</button>
+    </a>
 </div>
 </body>
 </html>
