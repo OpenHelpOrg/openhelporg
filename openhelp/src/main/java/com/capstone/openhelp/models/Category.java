@@ -1,6 +1,7 @@
 package com.capstone.openhelp.models;
 
 import javax.persistence.*;
+import java.util.List;
 
 @Entity
 @Table(name = "categories")

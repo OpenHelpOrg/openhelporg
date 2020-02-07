@@ -1,14 +1,12 @@
 package com.capstone.openhelp.models;
 
 import javax.persistence.*;
-
-
-
+import java.util.List;
 
 
 @Entity
-@Table(name = "Events")
-public class Events {
+@Table(name = "events")
+public class Event {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
@@ -43,10 +41,6 @@ public class Events {
     @Column(nullable = false)
     private int limit;
 
-    public Events() {
-
-    }
-
     @ManyToMany(cascade = CascadeType.ALL)
     @JoinTable(
             name="event_cat",
@@ -55,8 +49,10 @@ public class Events {
     )
     private List<Category> categories;
 
+    public Event() {
 
-    public Events(long id, String title, String location, String address, String details, String date, int time, String summary, String images, String notes, int limit) {
+    }
+    public Event(long id, String title, String location, String address, String details, String date, int time, String summary, String images, String notes, int limit) {
         this.id = id;
         this.title = title;
         this.location = location;
