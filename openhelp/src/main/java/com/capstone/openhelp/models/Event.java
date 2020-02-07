@@ -24,7 +24,7 @@ public class Event {
     @Column(nullable = false)
     private String details;
 
-    @Column(columnDefinition = "DATETIME", nullable = false)
+    @Column(columnDefinition = "DATETIME NOT NULL")
     private String date;
 
     private int time;
@@ -39,7 +39,7 @@ public class Event {
     private String notes;
 
     @Column(nullable = false)
-    private int limit;
+    private int vol_limit;
 
     @ManyToMany(cascade = CascadeType.ALL)
     @JoinTable(
@@ -63,7 +63,7 @@ public class Event {
         this.summary = summary;
         this.images = images;
         this.notes = notes;
-        this.limit = limit;
+        this.vol_limit = limit;
 
     }
 
@@ -148,10 +148,10 @@ public class Event {
     }
 
     public int getLimit() {
-        return limit;
+        return vol_limit;
     }
 
     public void setLimit(int limit) {
-        this.limit = limit;
+        this.vol_limit = limit;
     }
 }
