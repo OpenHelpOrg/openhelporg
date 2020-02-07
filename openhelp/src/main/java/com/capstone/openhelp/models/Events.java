@@ -4,6 +4,8 @@ import javax.persistence.*;
 
 
 
+
+
 @Entity
 @Table(name = "Events")
 public class Events {
@@ -44,6 +46,15 @@ public class Events {
     public Events() {
 
     }
+
+    @ManyToMany(cascade = CascadeType.ALL)
+    @JoinTable(
+            name="event_cat",
+            joinColumns={@JoinColumn(name="event_id")},
+            inverseJoinColumns={@JoinColumn(name="category_id")}
+    )
+    private List<Category> categories;
+
 
     public Events(long id, String title, String location, String address, String details, String date, int time, String summary, String images, String notes, int limit) {
         this.id = id;
