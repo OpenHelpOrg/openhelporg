@@ -12,6 +12,9 @@ public class Category {
     @Column(nullable = false)
     private String name;
 
+    @ManyToMany(mappedBy = "categories")
+    private List<Event> events;
+
     public Category() {
     }
 
@@ -33,5 +36,13 @@ public class Category {
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    public List<Event> getEvents() {
+        return events;
+    }
+
+    public void setEvents(List<Event> events) {
+        this.events = events;
     }
 }

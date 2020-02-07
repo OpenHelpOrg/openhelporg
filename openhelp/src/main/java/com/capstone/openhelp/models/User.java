@@ -1,8 +1,7 @@
 package com.capstone.openhelp.models;
 
-import org.springframework.boot.autoconfigure.condition.ConditionalOnBean;
-
 import javax.persistence.*;
+import java.util.List;
 
 @Entity
 @Table(name = "users")
@@ -32,6 +31,17 @@ public class User {
     private String address;
 
     private String website;
+
+    @ManyToMany
+    @JoinTable(
+            name = "user_org",
+            joinColumns={@JoinColumn(name = "user_id")},
+            inverseJoinColumns={@JoinColumn(name = "org_id")}
+            )
+    private List<User> users;
+
+    @ManyToMany(mappedBy = "users")
+    private List<User> organizations;
 
     public User() {
     }
@@ -139,5 +149,21 @@ public class User {
 
     public void setWebsite(String website) {
         this.website = website;
+    }
+
+    public List<User> getUsers() {
+        return users;
+    }
+
+    public void setUsers(List<User> users) {
+        this.users = users;
+    }
+
+    public List<User> getOrganizations() {
+        return organizations;
+    }
+
+    public void setOrganizations(List<User> organizations) {
+        this.organizations = organizations;
     }
 }
