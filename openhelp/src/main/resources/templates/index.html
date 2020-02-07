@@ -1,11 +1,13 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
-    <meta charset="UTF-8">
-    <title>Main</title>
+    <th:block th:insert="partials/head :: head"></th:block>
+    <title>Index</title>
 </head>
 <body>
-<h1>Welcome to Main Site</h1>
-<p>Test</p>
+<div class="wrapper">
+    <nav th:include="partials/navbar :: navbar"></nav>
+    <h1>Open help Index Page</h1>
+</div>
 </body>
 </html>
