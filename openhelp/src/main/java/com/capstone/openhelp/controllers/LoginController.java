@@ -1,5 +1,7 @@
 package com.capstone.openhelp.controllers;
 
+import com.capstone.openhelp.models.User;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -12,10 +14,24 @@ import org.springframework.web.bind.annotation.ResponseBody;
 public class LoginController {
     private String username;
 
+//    @GetMapping("/login")
+//    public String showLogin(){
+//        return "login";
+//    }
+
     @GetMapping("/login")
-    public String showLogin(){
+    public String showLogin(Model model){
+        model.addAttribute("user", new User());
         return "login";
     }
+//
+//    @PostMapping("/login")
+//    public String Login(){
+////        User user = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+////        model.addAttribute("user", user);
+//        System.out.println(username);
+//        return "index";
+//    }
 
 //    @PostMapping("/login")
 //    public String authLogin(
