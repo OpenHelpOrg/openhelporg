@@ -30,10 +30,10 @@
                         <input id="login-password" type="password" name="password" required>
                     </div>
                 </fieldset>
-                <div th:if="${param.error}" class="switcher">
+                <div th:if="${param.error}" class="switcher switcher-loginh">
                     Invalid Email and Password.
                 </div>
-                <div th:if="${param.logout}" class="switcher">
+                <div th:if="${param.logout}" class="switcher switcher-login">
                     You have been logged out.
                 </div>
                 <button type="submit" class="btn-login">Login</button>

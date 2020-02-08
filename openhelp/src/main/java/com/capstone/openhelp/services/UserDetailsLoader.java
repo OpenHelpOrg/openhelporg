@@ -21,7 +21,7 @@ public class UserDetailsLoader implements UserDetailsService {
 //    we're not using name for authentication, so will need to refactor to search for email
     @Override
     public UserDetails loadUserByUsername(String email) throws UsernameNotFoundException {
-        User user = userDao.findByEmailIs(email);
+        User user = userDao.findByEmail(email);
         if (user == null) {
             throw new UsernameNotFoundException("No user found for " + email);
         }

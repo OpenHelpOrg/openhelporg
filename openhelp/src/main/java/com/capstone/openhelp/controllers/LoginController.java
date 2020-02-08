@@ -24,13 +24,10 @@ public class LoginController {
         model.addAttribute("user", new User());
         return "login";
     }
-//
+
 //    @PostMapping("/login")
 //    public String Login(){
-////        User user = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
-////        model.addAttribute("user", user);
-//        System.out.println(username);
-//        return "index";
+//        return "redirect:/index";
 //    }
 
 //    @PostMapping("/login")
