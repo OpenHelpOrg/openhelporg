@@ -3,6 +3,7 @@ package com.capstone.openhelp.controllers;
 
 import com.capstone.openhelp.models.Event;
 import com.capstone.openhelp.models.User;
+import com.capstone.openhelp.services.EmailService;
 import org.springframework.security.core.context.SecurityContextHolder;
 import com.capstone.openhelp.repositories.EventRepository;
 import com.capstone.openhelp.repositories.UserRepository;
@@ -23,13 +24,13 @@ public class EventController {
 
     private final EventRepository eventDao;
     private final UserRepository userDao;
+    private final EmailService emailService;
 
 
-
-    public EventController(EventRepository eventDao, UserRepository userDao) {
+    public EventController(EventRepository eventDao, UserRepository userDao, EmailService emailService) {
         this.eventDao = eventDao;
         this.userDao = userDao;
-
+        this.emailService = emailService;
     }
 
 
@@ -45,7 +46,7 @@ public class EventController {
     }
 
     @GetMapping("/events/edit/{id}")
-    public String editeventForm
+    public String editEventForm
             (@PathVariable Long id,
              Model model){
         model.addAttribute("event", eventDao.getOne(id));
@@ -55,7 +56,7 @@ public class EventController {
 
 
     @PostMapping("/events/edit")
-    public String editevent(@ModelAttribute Event event){
+    public String editEvent(@ModelAttribute Event event){
         eventDao.save(event);
         return "redirect:/events";
     }
@@ -68,17 +69,19 @@ public class EventController {
         return "events/create";
     }
 
+
+
+    //NEED TO ATTACH USER TO EVENT !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
     @PostMapping("/events/create")
-    public String createevent(@ModelAttribute Event event){
+    public String createEvent(@ModelAttribute Event event){
         User user = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
-        event.setUser(user); //event model- set user to specific event
+//        event.setUser(user); //event model- set user to specific event
         eventDao.save(event); //event repo extends jpa repo
-//        emailService.prepareAndSend(event,"You just made a event","you just made a event"); //EmailService.java model
+        emailService.prepareAndSend(event,"You just made a event","you just made a event"); //EmailService.java model
         return "redirect:/events";
     }
 
-    //DELETE  *** NOT SURE ON RETURN PATH
-
+    //DELETE  *** NOT SURE ON RETURN PATH !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
     @GetMapping("/events/delete/{id}")
     public String showDelete(
             @PathVariable long id,

@@ -157,7 +157,15 @@ public class Event {
     }
 
 
-    //need to user this relating to setting event to user -Roger
-    public void setUser(User user) {
-    }
+    //setting event to user !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+
+
+
+//    public void setUser(User user) {
+//        this.user = user;
+//    }
+//
+//    public void getUser(User user) {
+//        return user;
+//    }
 }

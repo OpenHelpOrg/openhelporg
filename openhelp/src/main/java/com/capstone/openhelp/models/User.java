@@ -71,6 +71,15 @@ public class User {
         this.website = website;
     }
 
+
+    //pw config. needs review
+    public User(User copy) {
+        id = copy.id; // This line is SUPER important! Many things won't work if it's absent
+        email = copy.email;
+        name = copy.name;
+        password = copy.password;
+    }
+
     public long getId() {
         return id;
     }
