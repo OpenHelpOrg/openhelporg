@@ -24,7 +24,7 @@ public class UserController {
 //    public String showIndex(Model model){
 //        List<User> users = userDao.findAll();
 //        model.addAttribute("users", users);
-//        return "users/users-all";
+//        return "users/users";
 //    }
 //
 //    @GetMapping("/user/{id}")
@@ -43,7 +43,7 @@ public class UserController {
 //    @GetMapping("/create-user")
 //    public String showCreateView(Model model){
 //        model.addAttribute("user", new User());
-//        return "users/create-user";
+//        return "users/create";
 //    }
 //
 //    @PostMapping("create-user")
@@ -66,7 +66,7 @@ public class UserController {
 //        User user = userDao.findById(id);
 ////                .orElseThrow(()-> new PostException());
 //        model.addAttribute("user", user);
-//        return "users/edit-user";
+//        return "users/edit";
 //    }
 //    @PostMapping("/user/edit/{id}")
 //    public String editUser(
@@ -82,7 +82,7 @@ public class UserController {
 //            @PathVariable long id,
 //            Model model) {
 //        model.addAttribute("id", id);
-//        return "users/delete-user";
+//        return "users/delete";
 //    }
 //    @PostMapping("/users/delete-user/{id}")
 //    public String deleteUser(

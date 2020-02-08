@@ -96,7 +96,7 @@ public class EventController {
 //        return "redirect:/events";
 //    }
 //
-//    //DELETE
+//    //DELETE  *** NOT SURE ON RETURN PATH
 //
 //    @GetMapping("/events/delete/{id}")
 //    public String showDelete(
