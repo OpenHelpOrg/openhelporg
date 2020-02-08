@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <th:block th:insert="partials/head :: head"></th:block>
+    <title>Create</title>
+</head>
+<body>
+<div class="wrapper">
+    <nav th:include="partials/navbar :: navbar"></nav>
+
+    <header class="jumbotron">
+
+        <h1 class="text-center display-1">Create Event:</h1>
+        <!--            <h1 class="text-center display-1"><span th:text="${name}">holder</span></h1>-->
+
+    </header>
+
+<!--    <form class="container bg-light" th:action="@{/events/create}" method="post" th:object="${event}">-->
+<!--        <div class="row">-->
+<!--            <div class="col-6">-->
+<!--                <label for="title">Title</label>-->
+<!--                <input th:placeholder="Title" id="title" type="text" th:field="*{title}">-->
+<!--            </div>-->
+<!--            <div class="col-6">-->
+<!--                <label for="description">Description</label>-->
+<!--                <input th:placeholder="Description" id="description" type="text"-->
+<!--                       th:field="*{description}">-->
+<!--            </div>-->
+<!--            <div class="row">-->
+<!--                <button class="btn btn-primary" type="submit" name="action">-->
+<!--                    Submit-->
+<!--                </button>-->
+<!--            </div>-->
+<!--        </div>-->
+<!--    </form>-->
+<!--</div>-->
+
+</div>
+</body>
+</html>

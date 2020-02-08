@@ -49,6 +49,7 @@ public class Event {
     )
     private List<Category> categories;
 
+
     public Event() {
 
     }
@@ -154,4 +155,17 @@ public class Event {
     public void setLimit(int limit) {
         this.vol_limit = limit;
     }
+
+
+    //setting event to user !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+
+
+
+//    public void setUser(User user) {
+//        this.user = user;
+//    }
+//
+//    public void getUser(User user) {
+//        return user;
+//    }
 }
