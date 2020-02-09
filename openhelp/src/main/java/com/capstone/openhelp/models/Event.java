@@ -18,25 +18,25 @@ public class Event {
     @Column(nullable = false)
     private String location;
 
-    @Column(nullable = false)
+    @Column(nullable = false, length = 500)
     private String address;
 
-    @Column(nullable = false)
+    @Column(columnDefinition = "TEXT NOT NULL")
     private String details;
 
     @Column(columnDefinition = "DATETIME NOT NULL")
     private String date_time;
 
-    @Column(nullable = false)
+    @Column(columnDefinition = "TEXT NOT NULL")
     private String summary;
 
     @Column(nullable = false)
     private String images;
 
-    @Column(nullable = false)
+    @Column(columnDefinition = "TEXT")
     private String notes;
 
-    @Column(nullable = false)
+    @Column
     private int vol_limit;
 
     @ManyToMany(cascade = CascadeType.ALL)
