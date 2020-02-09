@@ -43,6 +43,9 @@ public class User {
     @ManyToMany(mappedBy = "users")
     private List<User> organizations;
 
+    @OneToMany(mappedBy = "user")
+    private List<UserEvents> userEvents;
+
     public User() {
     }
 
@@ -138,6 +141,14 @@ public class User {
 
     public String getAbout() {
         return about;
+    }
+
+    public List<UserEvents> getUserEvents() {
+        return userEvents;
+    }
+
+    public void setUserEvents(List<UserEvents> userEvents) {
+        this.userEvents = userEvents;
     }
 
     public void setAbout(String about) {
