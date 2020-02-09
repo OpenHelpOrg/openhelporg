@@ -47,7 +47,7 @@ public class UserController {
     public String showSingleUser(
             @PathVariable long id,
             Model model) {
-        User user = userDao.findById(id);
+        User user = userDao.getOne(id);
         model.addAttribute("user", user);
         return "users/singleuser";
     }

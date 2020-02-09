@@ -1,8 +1,5 @@
 package com.capstone.openhelp.repositories;
 
-
-
-
 import com.capstone.openhelp.models.Event;
 import org.springframework.data.jpa.repository.JpaRepository;
 

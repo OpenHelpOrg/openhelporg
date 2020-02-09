@@ -25,9 +25,7 @@ public class Event {
     private String details;
 
     @Column(columnDefinition = "DATETIME NOT NULL")
-    private String date;
-
-    private int time;
+    private String date_time;
 
     @Column(nullable = false)
     private String summary;
@@ -49,23 +47,36 @@ public class Event {
     )
     private List<Category> categories;
 
+    @OneToMany(mappedBy = "event")
+    private List<UserEvents> userEvents;
 
     public Event() {
 
     }
-    public Event(long id, String title, String location, String address, String details, String date, int time, String summary, String images, String notes, int limit) {
+    public Event(long id, String title, String location, String address, String details, String date, String summary, String images, String notes, int limit) {
         this.id = id;
         this.title = title;
         this.location = location;
         this.address = address;
         this.details = details;
-        this.date = date;
-        this.time = time;
+        this.date_time = date;
         this.summary = summary;
         this.images = images;
         this.notes = notes;
         this.vol_limit = limit;
 
+    }
+
+    public Event(String title, String location, String address, String details, String date_time, String summary, String images, String notes, int vol_limit) {
+        this.title = title;
+        this.location = location;
+        this.address = address;
+        this.details = details;
+        this.date_time = date_time;
+        this.summary = summary;
+        this.images = images;
+        this.notes = notes;
+        this.vol_limit = vol_limit;
     }
 
     public long getId() {
@@ -108,20 +119,36 @@ public class Event {
         this.details = details;
     }
 
-    public String getDate() {
-        return date;
+    public String getDate_time() {
+        return date_time;
     }
 
-    public void setDate(String date) {
-        this.date = date;
+    public void setDate_time(String date_time) {
+        this.date_time = date_time;
     }
 
-    public int getTime() {
-        return time;
+    public int getVol_limit() {
+        return vol_limit;
     }
 
-    public void setTime(int time) {
-        this.time = time;
+    public void setVol_limit(int vol_limit) {
+        this.vol_limit = vol_limit;
+    }
+
+    public List<Category> getCategories() {
+        return categories;
+    }
+
+    public void setCategories(List<Category> categories) {
+        this.categories = categories;
+    }
+
+    public List<UserEvents> getUserEvents() {
+        return userEvents;
+    }
+
+    public void setUserEvents(List<UserEvents> userEvents) {
+        this.userEvents = userEvents;
     }
 
     public String getSummary() {
@@ -156,16 +183,4 @@ public class Event {
         this.vol_limit = limit;
     }
 
-
-    //setting event to user !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-
-
-
-//    public void setUser(User user) {
-//        this.user = user;
-//    }
-//
-//    public void getUser(User user) {
-//        return user;
-//    }
 }
