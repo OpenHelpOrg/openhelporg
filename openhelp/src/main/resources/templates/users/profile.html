@@ -24,17 +24,17 @@
     <legend>Please edit or add information to your profile here!</legend>
     <div class="form-group">
         <label for="edit-email">Email address</label>
-        <input type="email" class="form-control" id="edit-email" th:value="${user.email}" th:field="*{email}">
+        <input type="email" class="form-control" id="edit-email" th:value="${user.email}" th:field="*{email}" required>
 <!--        <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>-->
     </div>
     <div class="form-group">
         <label for="edit-name">Name</label>
-        <input type="text" class="form-control" id="edit-name" th:value="${user.name}" th:field="*{name}">
+        <input type="text" class="form-control" id="edit-name" th:value="${user.name}" th:field="*{name}" required>
     </div>
-    <div class="form-group">
-        <label for="edit-password">Password</label>
-        <input type="password" class="form-control" id="edit-password" th:value="${user.password}" th:field="*{password}">
-    </div>
+<!--    <div class="form-group">-->
+<!--        <label for="edit-password">Password</label>-->
+<!--        <input type="password" class="form-control" id="edit-password" th:value="${user.password}" th:field="*{password}" required>-->
+<!--    </div>-->
     <div class="form-group">
         <label for="edit-phone">Telephone</label>
         <input type="tel" class="form-control" id="edit-phone" th:value="${user.phone}" th:field="*{phone}">
