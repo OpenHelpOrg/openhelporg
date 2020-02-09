@@ -3,6 +3,8 @@ package com.capstone.openhelp.controllers;
 
 import com.capstone.openhelp.models.User;
 import com.capstone.openhelp.repositories.UserRepository;
+import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -16,10 +18,10 @@ import java.util.List;
 @Controller
 public class UserController {
 
-    @GetMapping("/users/profile")
-    public String profile(){
-        return "users/profile";
-    }
+//    @GetMapping("/users/profile")
+//    public String profile(){
+//        return "users/profile";
+//    }
 
     private UserRepository userDao;
 
@@ -82,14 +84,12 @@ public class UserController {
 //        model.addAttribute("user", user);
 //        return "users/edit";
 //    }
-//    @PostMapping("/user/edit/{id}")
-//    public String editUser(
-//            @ModelAttribute User user,
-//            @PathVariable long id
-//    ){
-//        userDao.save(user);
-//        return "redirect:/user/" + id;
-//    }
+
+    @PostMapping("/users/edit/{id}")
+    public String editUser(@ModelAttribute User user, @PathVariable long id){
+        userDao.save(user);
+        return "users/profile";
+    }
 
     //! DELETE
     @GetMapping("/users/delete/{id}")
@@ -121,6 +121,13 @@ public class UserController {
         user.setPassword(hash);
         userDao.save(user);
         return "login";
+    }
+
+    @GetMapping("/users/profile")
+    public String showUserProfile(Model model){
+        User user = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+        model.addAttribute("user", user);
+        return("users/profile");
     }
 }
 
