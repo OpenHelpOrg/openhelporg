@@ -6,7 +6,23 @@
 </head>
 <body>
 <nav th:include="partials/navbar :: navbar"></nav>
-<h1>single user</h1>
+<h1 th:text="${user.getName()}"></h1>
+<h3>About</h3>
+<p th:text="${user.getAbout()}"></p>
+<h3>Address</h3>
+<p th:text="${user.getAddress()}"></p>
+<h3>Email</h3>
+<p th:text="${user.getEmail()}"></p>
+<h3>Phone</h3>
+<p th:text="${user.getPhone()}"></p>
+<h3>Website</h3>
+<p th:text="${user.getWebsite()}"></p>
+<img th:src="@{${user.getImage()}}" alt="User avatar">
+
+<div th:each="event : ${user.getUserEvents()}">
+    <p th:text="${event.getEvent().getTitle()}"></p>
+</div>
+
 <!--<h1 th:text="${user.username}" class="">One User</h1>-->
 
 <!--<div class="row">-->
