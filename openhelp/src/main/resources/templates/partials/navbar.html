@@ -8,7 +8,10 @@
 
 <nav th:fragment="navbar" class="navbar navbar-inverse navbar-fixed-top  mt-auto">
     <div class="navbar-header">
-        <a class="navbar-brand align-items-center" href="/">About?</a>
+        <a th:href="@{/about}">
+            <button style="border:none !important" class="btn-link btn p-0">About</button>
+        </a>
+<!--        <a class="navbar-brand align-items-center" href="/">About?</a>-->
         <a th:href="@{/home}">
             <button style="border:none !important" class="btn-link btn p-0">Home</button>
         </a>
@@ -31,7 +34,7 @@
                 </a>
             </li>
             <li class="d-flex align-items-center mx-2">
-                <a th:href="@{/eventindex}">
+                <a th:href="@{/events}">
                     <button style="border:none !important" class="btn-link btn p-0">Events</button>
                 </a>
             </li>
