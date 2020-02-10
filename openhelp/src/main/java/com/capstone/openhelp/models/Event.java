@@ -39,6 +39,11 @@ public class Event {
     @Column
     private int vol_limit;
 
+    //relates to User Model
+    @ManyToOne
+    @JoinColumn(name = "user_id")
+    private User user;
+
     @ManyToMany(cascade = CascadeType.ALL)
     @JoinTable(
             name="event_cat",
@@ -77,6 +82,13 @@ public class Event {
         this.images = images;
         this.notes = notes;
         this.vol_limit = vol_limit;
+    }
+    public User getUser() {
+        return user;
+    }
+
+    public void setUser(User user) {
+        this.user = user;
     }
 
     public long getId() {
