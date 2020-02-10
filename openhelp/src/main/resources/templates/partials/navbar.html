@@ -1,77 +1,53 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
-    <th:block th:insert="partials/head :: head"></th:block>
-    <title>Create</title>
+    <title>Home</title>
+<link rel="stylesheet" href="css/navbar.css">
+    <title>NavBar</title>
+
 </head>
 <body>
 
-<nav th:fragment="navbar" class="navbar navbar-inverse navbar-fixed-top  mt-auto">
-    <div class="navbar-header">
-        <a th:href="@{/about}">
-            <button style="border:none !important" class="btn-link btn p-0">About</button>
-        </a>
-<!--        <a class="navbar-brand align-items-center" href="/">About?</a>-->
-        <a th:href="@{/home}">
-            <button style="border:none !important" class="btn-link btn p-0">Home</button>
-        </a>
-    </div>
-    <div class="collapse navbar-collapse">
-        <ul class="nav navbar-nav pull-right">
-            <li class="d-flex align-items-center mx-2">
-                <a th:href="@{/users}">
-                    <button style="border:none !important" class="btn-link btn p-0">Users</button>
-                </a>
+<nav th:fragment="navbar" class="navbar navbar-expand-lg py-3">
+    <a class="navbar-brand" href="/home">OpenHelp</a>
+
+    <div class="collapse navbar-collapse d-flex flex-row" id="navbarSupportedContent">
+        <!--        ml-auto vs mr-auto-->
+        <ul class="navbar-nav ml-auto">
+
+            <li class="nav-item mx-2">
+                <a class="nav-link" href="/users">Partners</a>
             </li>
-            <li class="d-flex align-items-center mx-2">
-                <a th:href="@{/sign-up}">
-                    <button style="border:none !important" class="btn-link btn p-0">Sign Up</button>
-                </a>
+            <li class="nav-item mx-2">
+                <a class="nav-link" href="/events">Events</a>
             </li>
-            <li class="d-flex align-items-center mx-2">
-                <a th:href="@{/users/profile}">
-                    <button style="border:none !important" class="btn-link btn p-0">Profile</button>
-                </a>
+            <li class="nav-item mx-2">
+                <a class="nav-link" href="/users/profile">View My Profile</a>
             </li>
-            <li class="d-flex align-items-center mx-2">
-                <a th:href="@{/events}">
-                    <button style="border:none !important" class="btn-link btn p-0">Events</button>
-                </a>
+            <li class="nav-item mx-2">
+                <a class="nav-link" href="/events/create">Create an Event</a>
             </li>
-            <li class="d-flex align-items-center mx-2">
-                <a th:href="@{/events/singleevent}">
-                    <button style="border:none !important" class="btn-link btn p-0">Single Event</button>
-                </a>
-            </li>
-            <li class="d-flex align-items-center mx-2">
-                <a th:href="@{/login}">
-                    <button style="border:none !important" class="btn-link btn p-0">Login</button>
-                </a>
-            </li>
-            <li class="d-flex align-items-center mx-2">
-                <a th:href="@{/logout}">
-                    <button style="border:none !important" class="btn-link btn p-0">Logout</button>
-                </a>
-            </li>
-            <li class="d-flex align-items-center mx-2">
-                <a th:href="@{/events/create}">
-                    <button style="border:none !important" class="btn-link btn p-0">Create Event</button>
-                </a>
+            <li class="nav-item mx-2">
+                <a class="nav-link" href="/sign-up">Login/Signup</a>
             </li>
 
-<!--            <li class="d-flex align-items-center mx-2">-->
-<!--                <a th:href="@{'/login?logout'}">-->
-<!--                    <button style="border:none !important" class="btn-link btn p-0">Logout</button>-->
-<!--                </a>-->
-<!--            </li>-->
         </ul>
-    </div><!--/.nav-collapse -->
-
+        <form class="form-inline my-2 my-lg-0">
+            <input class="form-control mr-sm-2" id="searchfield" type="search" placeholder="Search" aria-label="Search">
+            <button class="btn my-2 my-sm-0" id="searchbutton" type="submit">Search</button>
+        </form>
+    </div>
 </nav>
+
+
+
 <div class="mt-auto" th:fragment="footer">
     <a th:href="@{/about}">
         <button style="border:none !important" class="btn-link btn p-0">About</button>
     </a>
 </div>
+
+
+
 </body>
 </html>
